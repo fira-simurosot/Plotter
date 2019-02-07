@@ -24,7 +24,7 @@
 #include "guitimer.h"
 #include "ui_plotter.h"
 #include "google/protobuf/descriptor.h"
-#include "proto/cpp/messages_parsian_simurosot_worldmodel.pb.h"
+#include "messages_parsian_simurosot_worldmodel.pb.h"
 #include <cmath>
 #include <QComboBox>
 #include <QMenu>
