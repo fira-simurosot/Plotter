@@ -12,18 +12,19 @@ MyThread::~MyThread() {
 void MyThread::run()
 {
     QUdpSocket* socket = new QUdpSocket();
-    socket->bind(QHostAddress("172.21.232.219"), 10040, QUdpSocket::ShareAddress);
+    socket->bind(QHostAddress("172.21.224.130"), 10040, QUdpSocket::ShareAddress);
 //    socket->joinMulticastGroup(QHostAddress("224.5.23.2"));
     while(runApp) {
         while (socket->hasPendingDatagrams()) {
-            WorldModel* head = new WorldModel;
+            DataWrapper* head = new DataWrapper;
             QByteArray Buffer;
             Buffer.resize(socket->pendingDatagramSize());
             QHostAddress sender;
             quint16 senderPort;
             socket->readDatagram(Buffer.data(),Buffer.size(),&sender,&senderPort);
             if (head->ParseFromArray(Buffer.data(), Buffer.size())) {
-                emit status(head);
+                WorldModel* wm = const_cast<WorldModel*>(&head->worldmodel());
+                emit status(wm);
             } else {
                 qDebug() << "FAILED TO PARSE" << Buffer.size();
             }
