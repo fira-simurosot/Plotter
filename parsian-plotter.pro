@@ -44,7 +44,8 @@ HEADERS  += mainwindow.h \
 FORMS    += \
     plotter.ui
 
-RESOURCES +=
+RESOURCES += \
+    resource.qrc
 
 DISTFILES +=
 

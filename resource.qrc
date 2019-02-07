@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/icon">
-        <file alias="plotter.svg">plotter.svg</file>
+        <file>plotter.svg</file>
     </qresource>
 </RCC>
