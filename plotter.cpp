@@ -236,42 +236,18 @@ void Plotter::handleStatus(WorldModel *_status)
         m_startTime = m_time;
     }
 
-    // handle each message
-    //    if (status.has_detection()) {
-    //        const Frame& raw = status.detection();
-    //        if (status.has_ball()) {
-    //            parseMessage(status.ball(), QStringLiteral("Ball.raw"), m_time);
-
-    //        }
-
-    //        for (int i = 0; i < status.robots_yellow_size(); i++) {
-    //            const RRobot& robot = status.robots_yellow(i);
-    //            const QString rawParent = QString(QStringLiteral("Yellow.%1.raw")).arg(robot.id());
-    //            parseMessage(robot, rawParent, m_time);
-    //        }
-
-    //        for (int i = 0; i < status.robots_blue_size(); i++) {
-    //            const RRobot& robot = status.robots_yellow(i);
-    //            const QString rawParent = QString(QStringLiteral("Blue.%1.raw")).arg(robot.id());
-    //            parseMessage(robot, rawParent, m_time);
-    //        }
-    //    }
-
-
-    //    if (status.has_worldmodel()) {
-    //        const WorldModel &wm = status.worldmodel();
     if (wm.has_ball()) {
         parseMessage(wm.ball(), QStringLiteral("Ball"), m_time);
 
     }
 
-    for (int i = 0; i < wm.our_robots_size(); i++) {
-        const MovingObject &robot = wm.our_robots(i);
+    for (int i = 0; i < wm.our_size(); i++) {
+        const MovingObject &robot = wm.our(i);
         parseMessage(robot, QString(QStringLiteral("Our.%1")).arg(robot.id()), m_time);
     }
 
-    for (int i = 0; i < wm.opp_robots_size(); i++) {
-        const MovingObject &robot = wm.opp_robots(i);
+    for (int i = 0; i < wm.opp_size(); i++) {
+        const MovingObject &robot = wm.opp(i);
         parseMessage(robot, QString(QStringLiteral("Opp.%1")).arg(robot.id()), m_time);
     }
 

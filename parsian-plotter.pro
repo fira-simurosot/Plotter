@@ -23,7 +23,6 @@ SOURCES += main.cpp\
     plotter.cpp \
     msg/cpp/messages_parsian_simurosot_data_wrapper.pb.cc \
     msg/cpp/messages_parsian_simurosot_debugs.pb.cc \
-    msg/cpp/messages_parsian_simurosot_detection.pb.cc \
     msg/cpp/messages_parsian_simurosot_worldmodel.pb.cc \
     mythread.cpp
 
@@ -37,7 +36,6 @@ HEADERS  += mainwindow.h \
     plotter.h \
     msg/cpp/messages_parsian_simurosot_data_wrapper.pb.h \
     msg/cpp/messages_parsian_simurosot_debugs.pb.h \
-    msg/cpp/messages_parsian_simurosot_detection.pb.h \
     msg/cpp/messages_parsian_simurosot_worldmodel.pb.h \
     mythread.h
 
